@@ -1,2 +1,0 @@
-## List generation and slice
-
