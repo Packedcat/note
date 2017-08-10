@@ -80,3 +80,11 @@ def fib(max):
 fib(6)
 >>> 1 1 2 3 5 8
 ```
+
+### List Iterator
+
+```python
+r = (x for x in range(10))
+list(r)
+>>> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
