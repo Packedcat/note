@@ -80,7 +80,7 @@ interface SquareConfig {
 
 ### 函数类型
 
-基本使用
+#### 基本使用
 
 ```typescript
 interface SearchFunc {
@@ -93,9 +93,10 @@ mySearch = function(source: string, subString: string) {
 }
 ```
 
-函数参数名不需要与接口定义的名字相匹配
+#### 参数匹配
 
 ```typescript
+// 函数参数名不需要与接口定义的名字相匹配
 let mySearch: SearchFunc;
 mySearch = function(src: string, sub: string): boolean {
   let result = src.search(sub);
@@ -103,9 +104,10 @@ mySearch = function(src: string, sub: string): boolean {
 }
 ```
 
-可不指定函数的类型，由编译器推断参数类型
+#### 参数推断
 
 ```typescript
+// 可不指定函数的类型，由编译器推断参数类型
 let mySearch: SearchFunc;
 mySearch = function(src, sub) {
     let result = src.search(sub);
@@ -114,6 +116,12 @@ mySearch = function(src, sub) {
 ```
 
 ### 可索引类型
+
+#### 定义
+
+
+
+#### 只读索引签名
 
 ### 类类型
 
