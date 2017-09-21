@@ -88,3 +88,28 @@ r = (x for x in range(10))
 list(r)
 >>> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+### Global Varable
+
+```python
+GLOBAL_VARIABLE = 0
+
+def set_globvar_to_one():
+    global GLOBAL_VARIABLE # 修改变量时需要重新全局声明
+    GLOBAL_VARIABLE = 1
+
+def print_globvar():
+    print(GLOBAL_VARIABLE) # 只读不需要重新全局声明
+
+set_globvar_to_one()
+print_globvar() # Prints 1
+```
+
+### Initialize List
+
+```python
+multi_list = [[0 for col in range(3)] for row in range(3)]
+>>> [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+single_list = [None] * 5
+>>> [None, None, None, None, None,]
+```
