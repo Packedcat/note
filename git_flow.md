@@ -49,7 +49,7 @@ git checkout -b release/[0.0.0] develop
 git add ***
 git commit -m '***'
 
-# 特性分支完成
+# 发布分支完成
 git checkout master
 git merge --no-ff release/[0.0.0]
 git tag -a [0.0.0]
