@@ -16,7 +16,8 @@ git commit -m '***'
  
 # 在分支开发过程中合并develop分支到本分支
 git checkout develop
-git pull origin develop
+git fetch origin
+git merge origin/develop
 git checkout [feature-name]
 git merge develop
  
