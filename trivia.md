@@ -40,12 +40,22 @@ find /etc -name .bashrc > list 2>&1
 - legacy => 遗留
 - reproduce => 重现
 - maintainable  => 可维护性
-- Performance => 性能
+- performance => 性能
+- integration => 集成
+- detect => 检查
+- deprecated => 废弃
+- identical => 一致
+- reusable => 复用
+- above => 以上
+- below =>下面
+- batch => 批量
+- conditional => 条件
 
 ### Proper Noun
 
 - Hot Module Replacement => 模块热替换（webpack的概念）
 - Hot Reload => 热重载（vue-loader的概念）
+- Front-end Integrated Solution(i) => 前端集成解决方案
 
 ### TypeScript
 
