@@ -179,3 +179,30 @@ $ ssh -NT -D 8080 host
 # 在不中断SSH连接的情况下，在本地shell中执行其他操作
 $ ssh -f -D 8080 host
 ```
+
+### 禁用 root 登录
+
+1. 添加用户并添加 **ssh-key**
+
+```shell
+# on server
+passwd root
+adduser kitsch
+passwd kitsch
+
+# on local
+ssh-copy-id kitsch@[ip]
+```
+
+2. 修改配置 `/etc/ssh/sshd_config`
+
+```shell
+vi /etc/ssh/sshd_config
+
+PasswordAuthentication no # 禁用密码登录
+PermitRootLogin no        # 禁用 root 帐号登录
+PubkeyAuthentication yes
+
+# resart ssh serveice
+service sshd restart
+```
