@@ -50,6 +50,10 @@ find /etc -name .bashrc > list 2>&1
 - below =>下面
 - batch => 批量
 - conditional => 条件
+- migration => 升级
+- aggregation => 聚合
+- embedded => 嵌入式的
+- duplication => 重复的
 
 ### Proper Noun
 
