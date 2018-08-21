@@ -26,6 +26,102 @@ yarn add cross-env -D
 }
 ```
 
+#### .babelrc
+
+存放于根目录用与设置转码规则和插件
+
+```json
+{
+  "presets": [],
+  "plugins": []
+}
+```
+
+`presets `字段设定转码规则，根据需求安装相应的依赖并加入 `.babelrc`
+
+`"modules": false,` 不转码模块引入
+
+`"plugins": ["transform-runtime"]` 作用同 `babel-polyfill` 后者会污染全局环境，若是一个代码库可能导致在其他人的执行环境中出错
+
+#### babel-node
+
+执行 `babel-node` 可进入 __PEPL__ 环境测试 __ES6__ 代码
+
+需要全局或项目安装 `babel-cli`
+
+#### babel-register
+
+`babel-register` 模块为 `require` 命令加上一个钩子
+
+使用 `require` 加载 `.js`、`.jsx`、`.es` 和 `.es6` 后缀名的文件，会先用Babel进行转码
+
+使用时，必须首先加载 `babel-register`
+
+```javascript
+require("babel-register");
+require("./index.js");
+```
+由于是实时转码，所以只适合在开发环境使用
+
+#### babel-core
+
+对部分代码调用特定API进行转码
+
+```javascript
+var es6Code = 'let x = n => n + 1';
+var es5Code = require('babel-core')
+  .transform(es6Code, {
+    presets: ['es2015']
+  })
+  .code;
+// '"use strict";\n\nvar x = function x(n) {\n  return n + 1;\n};'
+```
+
+#### babel-polyfill
+
+__Babel__ 默认只转换新的 __JavaScript__ 语法（syntax），而不转换新的API
+
+eg.
+
+* Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象
+* 一些定义在全局对象上的方法（比如`Object.assign`）
+
+#### webpack配置babel
+
+安装
+
+```shell
+npm install --save-dev babel-loader babel-core
+```
+
+配置
+
+```javascript
+module: {
+  rules: [
+    { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+  ]
+}
+```
+装载
+
+```javascript
+var Person = require("babel!./Person.js").default;
+new Person();
+```
+
+创建`.babelrc`配置文件
+
+```shell
+npm install babel-preset-env --save-dev
+```
+
+```json
+{
+  "presets": ["env"]
+}
+```
+
 ### Plugins
 
 #### Presets
