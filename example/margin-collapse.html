@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin collapse</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+		}
+		div {
+			margin: 20px;
+		}
+		h3 {
+			color: #66ccff;
+		}
+		.tall {
+			width: 100px;
+			height: 100px;
+			background-color: #4c98be;
+		}
+		.short {
+			width: 50px;
+			height: 50px;
+			background-color: #66ccff;
+		}
+		.border {
+			border: 1px solid #33667f;
+		}
+		.padding {
+			padding-top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h3>Sibling Elements</h3>
+	<div class="tall"></div>
+	<div class="tall"></div>
+	<h3>Child Elements</h3>
+	<div class="tall">
+		<div class="short"></div>
+	</div>
+	<h3>Use border</h3>
+	<div class="tall border">
+		<div class="short"></div>
+	</div>
+	<h3>Use padding</h3>
+	<div class="tall padding">
+		<div class="short"></div>
+	</div>
+	<h3>Without height/padding/border</h3>
+	<div style="min-height: 0"></div>	
+</body>
+</html>

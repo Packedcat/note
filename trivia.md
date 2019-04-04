@@ -54,12 +54,29 @@ find /etc -name .bashrc > list 2>&1
 - aggregation => 聚合
 - embedded => 嵌入式的
 - duplication => 重复的
+- acknowledgement => 已读
+- short form => 简写
+- nested => 嵌套
+- no-op => 无效操作
+- built-in => 内置
+- cumbersome => 笨重
+- establish => 建立
+- immediately => 立即
+- populated => 填装
+- decoupled => 解耦
+- suppress => 取消
+- extract => 抽取
+- verdict => 判定
+- preprocessor => 预处理器
+- presentation => 演讲
 
 ### Proper Noun
 
 - Hot Module Replacement => 模块热替换（webpack的概念）
 - Hot Reload => 热重载（vue-loader的概念）
 - Front-end Integrated Solution(i) => 前端集成解决方案
+- Remote Procedure Call => 远程过程调用
+- separation of concerns => 关注点分离
 
 ### TypeScript
 

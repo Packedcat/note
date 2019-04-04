@@ -46,6 +46,14 @@ systemctl stop firewalld.service # 停止firewall
 systemctl disable firewalld.service # 禁止firewall开机启动
 ```
 
+查看配置
+
+```shell
+free -h # 查看内存使用情况
+lscpu # 查看CPU
+df -h # 查看存储
+```
+
 ### SHH命令
 
 #### 基本用法
