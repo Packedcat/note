@@ -4,12 +4,12 @@
 
 #### 爬取周期
 
-1. 开始的URLs（可以是`start_requests()`方法或者`start_urls`属性）指定回调函数
+1. 开始的 URLs（可以是`start_requests()`方法或者`start_urls`属性）指定回调函数
 2. 在回调函数中解析相应体返回`Item`对象、`Requset`对象或者可迭代对象
 3. 使用`Selectors`解析响应体获取结构化数据
 4. 存储数据到数据库（如果有对应的`Item Pipeline`）或者写进文件
 
-#### scrapy.Spider类
+#### scrapy.Spider 类
 
 > name
 
@@ -21,7 +21,7 @@
 
 > start_urls
 
-当没有指定开始url时使用这个列表中的元素开始爬取
+当没有指定开始 url 时使用这个列表中的元素开始爬取
 
 > custom_settings
 

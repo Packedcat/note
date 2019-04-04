@@ -1,17 +1,17 @@
-### ECMA-262编程规范
+### ECMA-262 编程规范
 
 ```javascript
 // 规则1：表示区块起首的大括号，不要另起一行。
 // eg:
-return
+return;
 {
-	key: value;
-};
+  key: value;
+}
 // =>
 return;
 {
-	key: value;
-};
+  key: value;
+}
 ```
 
 ```
@@ -34,8 +34,8 @@ x = y(function() {...})();
 ```javascript
 // 规则6：不要使用with语句。
 // eg:
-with(o) {
-	foo = bar;
+with (o) {
+  foo = bar;
 }
 // =>
 // o.foo = bar;
@@ -47,19 +47,19 @@ with(o) {
 ```javascript
 // 规则7：不要使用"相等"（==）运算符，只使用"严格相等"（===）运算符。
 // eg:
-0 == '' // true
-1 == true // true
-2 == true // false
-0 == '0' // true
-false == 'false' // false
-false == '0' // true
-"\t\r\n" == 0 // true
+0 == ""; // true
+1 == true; // true
+2 == true; // false
+0 == "0"; // true
+false == "false"; // false
+false == "0"; // true
+"\t\r\n" == 0; // true
 ```
 
 ```javascript
 // 规则8：不要将不同目的的语句，合并成一行。
 // eg:
-var a = b = 0;
+var a = (b = 0);
 // =>
 b = 0;
 var a = b;
@@ -87,10 +87,11 @@ eg: 一旦忘记使用new对象内部this指针会指向全局对象
 ```javascript
 // 规则15：总是使用大括号表示区块。
 // eg:
-if (a) b(); c();
+if (a) b();
+c();
 // =>
 if (a) {
-	b();
+  b();
 }
 c();
 ```
@@ -117,7 +118,7 @@ c();
 
 静态字符串使用单引号`'foobar'`
 
-动态字符串使用反引号```foo${a}bar` ``
+动态字符串使用反引号``` foo${a}bar` ``
 
 #### 3.解构赋值
 
@@ -149,15 +150,14 @@ function getFullName(obj) {
 }
 
 // best
-function getFullName({ firstName, lastName }) {
-}
+function getFullName({ firstName, lastName }) {}
 ```
 
 #### 4.对象
 
 单行定义对象最后一个成员不以逗号结尾
 
-多行定义对象最后一个成员以逗号结尾，Git提交会少一行记录
+多行定义对象最后一个成员以逗号结尾，Git 提交会少一行记录
 
 使用`Object.assign`添加新的属性
 
@@ -166,7 +166,7 @@ function getFullName({ firstName, lastName }) {
 对象的属性和方法尽量简写
 
 ```javascript
-var ref = 'some value';
+var ref = "some value";
 
 // bad
 const atom = {
@@ -174,9 +174,9 @@ const atom = {
 
   value: 1,
 
-  addValue: function (value) {
+  addValue: function(value) {
     return atom.value + value;
-  },
+  }
 };
 
 // good
@@ -187,7 +187,7 @@ const atom = {
 
   addValue(value) {
     return atom.value + value;
-  },
+  }
 };
 ```
 
@@ -209,28 +209,28 @@ for (i = 0; i < len; i++) {
 const itemsCopy = [...items];
 ```
 
-使用Array.from方法，将类似数组的对象转为数组
+使用 Array.from 方法，将类似数组的对象转为数组
 
 ```javascript
-const foo = document.querySelectorAll('.foo');
+const foo = document.querySelectorAll(".foo");
 const nodes = Array.from(foo);
 ```
 
 #### 6.函数
 
-使用箭头函取代`Function.prototype.bind`，不再适用self/_this/that绑定`this`
+使用箭头函取代`Function.prototype.bind`，不再适用 self/\_this/that 绑定`this`
 
 使用箭头函数代替函数表达式
 
 函数的配置项应该集中在一个对象，放在最后一个参数，布尔值不作为直接参数
 
-不在函数体内使用arguments变量，使用rest(…)运算符代替
+不在函数体内使用 arguments 变量，使用 rest(…)运算符代替
 
 使用默认值语法设置函数参数的默认值
 
-#### 7.Map结构
+#### 7.Map 结构
 
-如果只是需要`key: value`的数据结构，使用Map结构，因为Map结构有内建的遍历机制
+如果只是需要`key: value`的数据结构，使用 Map 结构，因为 Map 结构有内建的遍历机制
 
 ```javascript
 let map = new Map(arr);
@@ -250,7 +250,7 @@ for (let item of map.entries()) {
 
 #### 8.Class
 
-使用Class取代需要proyotype的操作
+使用 Class 取代需要 proyotype 的操作
 
 使用`extends`实现继承，这样不会有破坏`instanceof`的危险
 

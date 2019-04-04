@@ -77,4 +77,3 @@ aria2c --conf-path=<PATH> -D
 ```shell
 kill aria2
 ```
-

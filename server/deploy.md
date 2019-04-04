@@ -54,7 +54,7 @@ lscpu # 查看CPU
 df -h # 查看存储
 ```
 
-### SHH命令
+### SHH 命令
 
 #### 基本用法
 
@@ -70,7 +70,7 @@ $ ssh user@host
 $ ssh host
 ```
 
-SSH默认端口为22，使用-p修改端口号
+SSH 默认端口为 22，使用-p 修改端口号
 
 ```shell
 $ ssh -p 2222 user@host
@@ -78,14 +78,14 @@ $ ssh -p 2222 user@host
 
 #### 中间人攻击（Man-in-the-middle attack）
 
-在公共wifi区域等处于用户与远程主机之间使用伪造的公钥获取用户的登录密码
+在公共 wifi 区域等处于用户与远程主机之间使用伪造的公钥获取用户的登录密码
 
 #### 口令登录
 
-* 在第一次登录远程主机的时候确认远程主机的公钥指纹
-* 远程主机应在自己的网站公开自己的公钥指纹
-* 接受公钥后会被保存至`$HOME/.ssh/known_hosts`之后便不再确认
-* 通常存在`/etc/ssh/ssh_known_hosts`保存所有用户都可以信赖的远程和主机公钥
+- 在第一次登录远程主机的时候确认远程主机的公钥指纹
+- 远程主机应在自己的网站公开自己的公钥指纹
+- 接受公钥后会被保存至`$HOME/.ssh/known_hosts`之后便不再确认
+- 通常存在`/etc/ssh/ssh_known_hosts`保存所有用户都可以信赖的远程和主机公钥
 
 #### 公钥登录
 
@@ -111,7 +111,7 @@ PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 ```
 
-重启远程主机的SSH服务
+重启远程主机的 SSH 服务
 
 ```shell
 # ubuntu系统
@@ -120,7 +120,7 @@ service ssh restart
 /etc/init.d/ssh restart
 ```
 
-#### authorized_keys文件
+#### authorized_keys 文件
 
 公钥保存的过程
 
@@ -129,7 +129,7 @@ $ ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.p
 ```
 
 1. 登录远程主机
-2. 若.ssh目录不存在创建
+2. 若.ssh 目录不存在创建
 3. 将本地公钥文件重定向追加到远程文件末尾
 
 #### 远程操作
@@ -146,7 +146,7 @@ $ cd && tar czv src | ssh user@host 'tar xz'
 $ ssh user@host 'tar cz src' | tar xzv
 ```
 
-查看远程主机是否运行进程httpd
+查看远程主机是否运行进程 httpd
 
 ```shell
 $ ssh user@host 'ps ax | grep [h]ttpd'
@@ -154,7 +154,7 @@ $ ssh user@host 'ps ax | grep [h]ttpd'
 
 #### 绑定本地端口
 
-绑定8080端口的数据通过SSH向远程主机传送
+绑定 8080 端口的数据通过 SSH 向远程主机传送
 
 ```shell
 $ ssh -D 8080 user@host
@@ -162,7 +162,7 @@ $ ssh -D 8080 user@host
 
 #### 本地端口转发
 
-通过host3连通host1与host2（待理）
+通过 host3 连通 host1 与 host2（待理）
 
 ```shell
 $ ssh -L 2121:host2:21 host3
@@ -170,16 +170,17 @@ $ ssh -L 2121:host2:21 host3
 
 #### 远程端口转发
 
-host1监听它自己的2121端口，然后将所有数据经由host3，转发到host2的21端口（待理）
+host1 监听它自己的 2121 端口，然后将所有数据经由 host3，转发到 host2 的 21 端口（待理）
 
 ```shell
 $ ssh -R 2121:host2:21 host1
 ```
-#### SSH的其他参数
 
-* N参数，表示只连接远程主机，不打开远程shell
-* T参数，表示不为这个连接分配TTY
-* f参数，表示SSH连接成功后，转入后台运行
+#### SSH 的其他参数
+
+- N 参数，表示只连接远程主机，不打开远程 shell
+- T 参数，表示不为这个连接分配 TTY
+- f 参数，表示 SSH 连接成功后，转入后台运行
 
 ```shell
 # 这个SSH连接只用来传数据，不执行远程操作

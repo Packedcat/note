@@ -37,7 +37,7 @@ git checkout -- .
 
 ### Rewrite history
 
- 修改最后一次提交
+修改最后一次提交
 
 ```shell
 git commit --amend
@@ -100,10 +100,9 @@ git rebase [target_branch_name]
 git merge [target_branch_name]
 ```
 
->  Git 会自行负责分支的管理，所以当我们删除一个分支时，Git 只是删除了指向相关提交的指针，但该提交对象依然会留在版本库中。
+> Git 会自行负责分支的管理，所以当我们删除一个分支时，Git 只是删除了指向相关提交的指针，但该提交对象依然会留在版本库中。
 
 使用下面命令恢复已知某提交哈希值的分支
-
 
 ```shell
 git branch [new_branch_name] [hash]

@@ -18,7 +18,7 @@ let octal: number = 0o744;
 ### String
 
 ```typescript
-let fullName: string = 'Cirno';
+let fullName: string = "Cirno";
 let age: number = 9;
 let sentence: string = `Hello, my name is ${fullName}.
 I'll be ${age + 1} years old next month.`;
@@ -39,15 +39,15 @@ let list: Array<number> = [1, 2, 3];
 ```typescript
 let x: [string, number];
 // 通过
-x = ['hello', 10];
+x = ["hello", 10];
 // 初始化失败
-x = [10, 'hello'];
+x = [10, "hello"];
 ```
 
 访问索引外的元素使用联合类型
 
 ```typescript
-x[3] = 'world'; // OK, 'string' can be assigned to 'string | number'
+x[3] = "world"; // OK, 'string' can be assigned to 'string | number'
 console.log(x[5].toString()); // OK, 'string' and 'number' both have 'toString'
 x[6] = true; // Error, 'boolean' isn't 'string | number'
 ```
@@ -55,22 +55,39 @@ x[6] = true; // Error, 'boolean' isn't 'string | number'
 ### Enum
 
 ```typescript
-enum Color {Red, Green, Blue}
+enum Color {
+  Red,
+  Green,
+  Blue
+}
 let c: Color = Color.Green; // 1
 // 可为第一个元素重新设置索引开始值
-enum Color {Red = 1, Green, Blue}
+enum Color {
+  Red = 1,
+  Green,
+  Blue
+}
 let c: Color = Color.Green; // 2
 // 全部指定值
-enum Color {Red = 1, Green = 2, Blue = 4}
+enum Color {
+  Red = 1,
+  Green = 2,
+  Blue = 4
+}
 let c: Color = Color.Green; // 2
 ```
 
 方便的反向映射获取枚举变量的名称
 
 ```typescript
-enum Color {Red = 1, Green, Blue}
+enum Color {
+  Red = 1,
+  Green,
+  Blue
+}
 let colorName: string = Color[2]; // 'Green'
 ```
+
 ### Any
 
 可随意赋值任意类型，常用于接受第三方插件的回调数据
@@ -87,21 +104,21 @@ prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object
 声明没有类型限制的数组
 
 ```typescript
-let list: any[] = [1, true, 'free'];
+let list: any[] = [1, true, "free"];
 list[1] = 100;
 ```
 
 ### Void
 
-类似any，不是任何类型，常见于不返回值的函数
+类似 any，不是任何类型，常见于不返回值的函数
 
 ```typescript
 function warnUser(): void {
-    alert("This is my warning message");
+  alert("This is my warning message");
 }
 ```
 
-声明一个void类型是无效的，因为只能赋值为`null`或者`undefied`
+声明一个 void 类型是无效的，因为只能赋值为`null`或者`undefied`
 
 ```typescript
 let unusable: void = undefined;
@@ -115,4 +132,3 @@ let unusable: void = undefined;
 let u: undefined = undefined;
 let n: null = null;
 ```
-

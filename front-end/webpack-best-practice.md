@@ -25,13 +25,13 @@ package command
 using a configuration
 
 ```javascript
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist")
   }
 };
 ```
@@ -53,16 +53,13 @@ module: {
   rules: [
     {
       test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ]
+      use: ["style-loader", "css-loader"]
     }
-  ]
+  ];
 }
 ```
 
->`import './style.css'` 会在运行时，将含有 CSS 字符串的 `<style>` 标签插入到 `html` 文件的 `<head>` 标签中
+> `import './style.css'` 会在运行时，将含有 CSS 字符串的 `<style>` 标签插入到 `html` 文件的 `<head>` 标签中
 
 loading image
 

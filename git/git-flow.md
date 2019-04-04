@@ -9,27 +9,27 @@
 git checkout develop
 git pull origin develop
 git checkout -b [feature-name] develop
- 
+
 # 在分支上开发
 git add ***
 git commit -m '***'
- 
+
 # 在分支开发过程中合并develop分支到本分支
 git checkout develop
 git fetch origin
 git merge origin/develop
 git checkout [feature-name]
 git merge develop
- 
+
 # 继续开发或解决冲突
 git add ***
 git commit -m '***'
- 
+
 # 特性分支开发完成
 git checkout develop
 git pull origin develop
 git merge --no-ff [feature-name]
- 
+
 # 如果没有冲突，就推送到远程
 git push origin develop
 

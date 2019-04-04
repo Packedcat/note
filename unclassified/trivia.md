@@ -39,7 +39,7 @@ find /etc -name .bashrc > list 2>&1
 - generics => 泛型
 - legacy => 遗留
 - reproduce => 重现
-- maintainable  => 可维护性
+- maintainable => 可维护性
 - performance => 性能
 - integration => 集成
 - detect => 检查
@@ -72,8 +72,8 @@ find /etc -name .bashrc > list 2>&1
 
 ### Proper Noun
 
-- Hot Module Replacement => 模块热替换（webpack的概念）
-- Hot Reload => 热重载（vue-loader的概念）
+- Hot Module Replacement => 模块热替换（webpack 的概念）
+- Hot Reload => 热重载（vue-loader 的概念）
 - Front-end Integrated Solution(i) => 前端集成解决方案
 - Remote Procedure Call => 远程过程调用
 - separation of concerns => 关注点分离

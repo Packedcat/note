@@ -2,15 +2,15 @@
 
 ### 定义
 
-* 类似__鸭子类型__或者__结构体__
-* 强制约束字段的数据类型
-* 接口的检查器不会要求这些属性用什么顺序排列，只要求借口所需的属性存在且类型一致
+- 类似**鸭子类型**或者**结构体**
+- 强制约束字段的数据类型
+- 接口的检查器不会要求这些属性用什么顺序排列，只要求借口所需的属性存在且类型一致
 
 ### 可选属性
 
-* 常应用于`option bags`模式
-* 对可能存在的属性进行预定义
-* 可以捕获引用了不存在的属性时的错误
+- 常应用于`option bags`模式
+- 对可能存在的属性进行预定义
+- 可以捕获引用了不存在的属性时的错误
 
 ```typescript
 interface SquareConfig {
@@ -18,8 +18,8 @@ interface SquareConfig {
   width?: number;
 }
 
-function createSquare(config: SquareConfig): {color: string; area: number} {
-  let newSquare = {color: 'white', area: 100};
+function createSquare(config: SquareConfig): { color: string; area: number } {
+  let newSquare = { color: "white", area: 100 };
   if (config.color) {
     newSquare.color = config.color;
   }
@@ -29,7 +29,7 @@ function createSquare(config: SquareConfig): {color: string; area: number} {
   return newSquare;
 }
 
-let mySquare = createSquare({color: 'black'});
+let mySquare = createSquare({ color: "black" });
 ```
 
 ### 只读属性
@@ -38,8 +38,8 @@ let mySquare = createSquare({color: 'black'});
 
 ```typescript
 interface Point {
-    readonly x: number;
-    readonly y: number;
+  readonly x: number;
+  readonly y: number;
 }
 // 赋值后x与y不能再改变
 let p1: Point = { x: 10, y: 20 };
@@ -72,9 +72,9 @@ let mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
 
 ```typescript
 interface SquareConfig {
-    color?: string;
-    width?: number;
-    [propName: string]: any;
+  color?: string;
+  width?: number;
+  [propName: string]: any;
 }
 ```
 
@@ -90,7 +90,7 @@ let mySearch: SearchFunc;
 mySearch = function(source: string, subString: string) {
   let result = source.search(subString);
   return result > -1;
-}
+};
 ```
 
 #### 参数匹配
@@ -101,7 +101,7 @@ let mySearch: SearchFunc;
 mySearch = function(src: string, sub: string): boolean {
   let result = src.search(sub);
   return result > -1;
-}
+};
 ```
 
 #### 参数推断
@@ -110,16 +110,14 @@ mySearch = function(src: string, sub: string): boolean {
 // 可不指定函数的类型，由编译器推断参数类型
 let mySearch: SearchFunc;
 mySearch = function(src, sub) {
-    let result = src.search(sub);
-    return result > -1;
-}
+  let result = src.search(sub);
+  return result > -1;
+};
 ```
 
 ### 可索引类型
 
 #### 定义
-
-
 
 #### 只读索引签名
 

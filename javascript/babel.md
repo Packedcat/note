@@ -2,7 +2,7 @@
 
 ### 概念
 
-babel 是一个 javascript 转译器，用于将 ECMAScriptxxxx 的代码转为ES5 的代码
+babel 是一个 javascript 转译器，用于将 ECMAScriptxxxx 的代码转为 ES5 的代码
 
 ### 使用
 
@@ -10,7 +10,7 @@ babel 是一个 javascript 转译器，用于将 ECMAScriptxxxx 的代码转为E
 
 #### env 选项
 
-`env` 选项的值将从 `process.env.BABEL_ENV` 获取，如果没有的话，则获取 `process.env.NODE_ENV` 的值，它也无法获取时会设置为 `"development"` 
+`env` 选项的值将从 `process.env.BABEL_ENV` 获取，如果没有的话，则获取 `process.env.NODE_ENV` 的值，它也无法获取时会设置为 `"development"`
 
 使用 `cross-env` 让命令跨平台工作
 
@@ -37,7 +37,7 @@ yarn add cross-env -D
 }
 ```
 
-`presets `字段设定转码规则，根据需求安装相应的依赖并加入 `.babelrc`
+`presets`字段设定转码规则，根据需求安装相应的依赖并加入 `.babelrc`
 
 `"modules": false,` 不转码模块引入
 
@@ -45,7 +45,7 @@ yarn add cross-env -D
 
 #### babel-node
 
-执行 `babel-node` 可进入 __PEPL__ 环境测试 __ES6__ 代码
+执行 `babel-node` 可进入 **PEPL** 环境测试 **ES6** 代码
 
 需要全局或项目安装 `babel-cli`
 
@@ -53,7 +53,7 @@ yarn add cross-env -D
 
 `babel-register` 模块为 `require` 命令加上一个钩子
 
-使用 `require` 加载 `.js`、`.jsx`、`.es` 和 `.es6` 后缀名的文件，会先用Babel进行转码
+使用 `require` 加载 `.js`、`.jsx`、`.es` 和 `.es6` 后缀名的文件，会先用 Babel 进行转码
 
 使用时，必须首先加载 `babel-register`
 
@@ -61,32 +61,31 @@ yarn add cross-env -D
 require("babel-register");
 require("./index.js");
 ```
+
 由于是实时转码，所以只适合在开发环境使用
 
 #### babel-core
 
-对部分代码调用特定API进行转码
+对部分代码调用特定 API 进行转码
 
 ```javascript
-var es6Code = 'let x = n => n + 1';
-var es5Code = require('babel-core')
-  .transform(es6Code, {
-    presets: ['es2015']
-  })
-  .code;
+var es6Code = "let x = n => n + 1";
+var es5Code = require("babel-core").transform(es6Code, {
+  presets: ["es2015"]
+}).code;
 // '"use strict";\n\nvar x = function x(n) {\n  return n + 1;\n};'
 ```
 
 #### babel-polyfill
 
-__Babel__ 默认只转换新的 __JavaScript__ 语法（syntax），而不转换新的API
+**Babel** 默认只转换新的 **JavaScript** 语法（syntax），而不转换新的 API
 
 eg.
 
-* Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象
-* 一些定义在全局对象上的方法（比如`Object.assign`）
+- Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象
+- 一些定义在全局对象上的方法（比如`Object.assign`）
 
-#### webpack配置babel
+#### webpack 配置 babel
 
 安装
 
@@ -98,11 +97,10 @@ npm install --save-dev babel-loader babel-core
 
 ```javascript
 module: {
-  rules: [
-    { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-  ]
+  rules: [{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }];
 }
 ```
+
 装载
 
 ```javascript

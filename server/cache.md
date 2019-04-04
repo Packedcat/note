@@ -28,7 +28,7 @@
 
 1. 从技术角度来看，Pragma 是一种请求首部，优先试用 Cache-Control 代替其控制缓存策略、
 2. 实体标记本质上为某个特定资源版本的标识符
-3. 优先级从高到低分别是 Pragma > Cache-Control > Expires
+3. 优先级从高到低分别是  Pragma > Cache-Control > Expires
 
 ### 用户行为
 
@@ -36,13 +36,14 @@
 
 若存在资源且未过期则返回 `200 OK (from [memory | disk] cache)`，否则从服务器重新获取资源
 
-##### 刷行行为 
+##### 刷行行为
 
 - 刷新按钮/右键重新加载按钮
 - `F5` or `command + r`
 - `location.reload()`
 
 添加以下 Headers
+
 ```http
 Cache-Control: max-age=0
 If-Modified-Since: [资源的Last-Modified头部]
@@ -69,7 +70,7 @@ Pragma: no-cache
 
 在没有提供任何浏览器缓存过期策略的情况下，浏览器遵循一个启发式缓存过期策略：
 
-根据响应头中 Date 与 Last-Modified 首部之间差值的10%作为缓存时间
+根据响应头中 Date 与 Last-Modified 首部之间差值的 10%作为缓存时间
 
 > HTTP/1.1 Cache-Control Header is present: private
 > HTTP Last-Modified Header is present: Tue, 08 Nov 2016 06:59:00 GMT
@@ -79,6 +80,5 @@ Pragma: no-cache
 
 ### Reference
 
-[HTTP缓存控制小结](http://imweb.io/topic/5795dcb6fb312541492eda8c)
+[HTTP 缓存控制小结](http://imweb.io/topic/5795dcb6fb312541492eda8c)
 [启发式缓存过期策略](https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ?ref=myread)
-

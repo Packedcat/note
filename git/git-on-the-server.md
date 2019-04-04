@@ -68,7 +68,7 @@ sudo systemctl restart sshd
 
 ### Reference
 
-[如何在Linux上搭建一个Git中央仓库](https://zhuanlan.zhihu.com/p/27267335)
+[如何在 Linux 上搭建一个 Git 中央仓库](https://zhuanlan.zhihu.com/p/27267335)
 
 [gitosis](https://github.com/res0nat0r/gitosis)
 
