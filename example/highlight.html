@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highlight API</title>
+  </head>
+
+  <style>
+    :root {
+      background-color: #546E7A;
+      font-size: larger;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      padding: 1em;
+    }
+    ::highlight(s-keyword) {
+      color: #ffd740;
+    }
+    ::highlight(s-variables) {
+      color: white;
+    }
+    ::highlight(s-value) {
+      color: #FF8A80;
+    }
+    ::highlight(s-operator) {
+      color: #40C4FF;
+    }
+  </style>
+  </style>
+  <body>
+    <div id="answer">const answer = 42</div>
+    <script>
+      const container = document.getElementById("answer").childNodes[0];
+      const rangeKeyword = new StaticRange({
+        startContainer: container,
+        startOffset: 0,
+        endContainer: container,
+        endOffset: 5,
+      });
+      const rangeVariables = new StaticRange({
+        startContainer: container,
+        startOffset: 6,
+        endContainer: container,
+        endOffset: 12,
+      });
+      const rangeOperator = new StaticRange({
+        startContainer: container,
+        startOffset: 13,
+        endContainer: container,
+        endOffset: 14,
+      });
+      const rangeValue = new StaticRange({
+        startContainer: container,
+        startOffset: 15,
+        endContainer: container,
+        endOffset: 17,
+      });
+      CSS.highlights.set("s-keyword", new Highlight(rangeKeyword));
+      CSS.highlights.set("s-variables", new Highlight(rangeVariables));
+      CSS.highlights.set("s-operator", new Highlight(rangeOperator));
+      CSS.highlights.set("s-value", new Highlight(rangeValue));
+    </script>
+  </body>
+</html>
