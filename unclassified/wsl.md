@@ -50,3 +50,33 @@ wsl --import Ubuntu-20.04 d:\wsl-ubuntu20.04 d:\wsl-ubuntu20.04.tar --version 2
 ```powershell
 del d:\wsl-ubuntu20.04.tar
 ```
+
+### 从外部机器使用 SSH 连接 Windows 中的 WSL2
+
+1. 在 WSL2 中安装 `openssh-server`
+
+```shell
+sudo apt update
+sudo apt install openssh-server
+```
+
+2. 修改 SSH 监听端口防止冲突
+
+```bash
+# /etc/ssh/sshd_config
+Port 2222
+ListenAddress 0.0.0.0
+```
+
+3. 启用 SSH 服务
+
+```shell
+sudo service ssh start
+sudo systemctl enable ssh
+```
+
+4. 在Windows中使用管理员权限开启防火墙
+
+```powershell
+netsh advfirewall firewall add rule name="Open Port 2222 for WSL2" dir=in action=allow protocol=TCP localport=2222
+```
